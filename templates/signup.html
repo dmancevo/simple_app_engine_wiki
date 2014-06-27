@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <title>Sign up!</title>
+
+        <style>
+            .warning{
+                color: red;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <h1>Sign up!</h1>
+        <form method="post">
+            <label for="username">Username: </label>
+            <input name="username" autofocus/> {% if username_error %}<span class="warning">Username is already taken or invalid</span>{% endif %}
+            <br>
+            <label for="password">Password: </label>
+            <input name="password" type="password"/> {% if password_error %}<span class="warning">Invalid password</span>{% endif %}
+            <br>
+            <label for="verify">Verify Password: </label>
+            <input name="verify" type="password"/> {% if verify_password_error %}<span class="warning">Passwords do not match</span>{% endif %}
+            <br>
+            <label for="email">Email (optional): </label>
+            <input name="email"/> {% if email_error %}<span class="warning">Invalid email</span>{% endif %}
+            <br>
+            <input type="hidden" name="referer" value={{referer}}/>
+            <br>
+            <input type="Submit" value="Submit"/>
+        </form>
+    </body>
+
+</html>
