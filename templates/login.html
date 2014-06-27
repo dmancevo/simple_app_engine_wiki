@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>Wiki Login</title>
+
+	<style>
+		.warning{
+			color: red;
+		}
+	</style>
+
+</head>
+
+<body>
+	<h1>Login!</h1>
+
+	{% if login_error %}<span class="warning">Invalid username/password combination.</span>{% endif %}
+	<br>
+	<form method="post">
+
+		<label for="username">Username: </label>
+		<input name="username" autofocus/>
+		<br>
+		<label for="password">Password: </label>
+		<input type="password" name="password"/>
+		<br>
+		<input type="hidden" name="referer" value={{referer}}/>
+		<br>
+		<input type="Submit" value="Login" />
+
+	</form>
+
+</body>
+
+</html>
