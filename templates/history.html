@@ -1,0 +1,33 @@
+{% extends "wiki.html" %}
+
+{% block title %}Wiki History{% endblock %}
+
+{% block navbar %}
+
+		<li><a href={{page}}>View</a></li>
+
+		{% if logged_in %}
+		<li><a href="/logout">{{username}} (logout)</a></li>
+
+		{% else %}
+		<li><a href="/login">Login</a></li>
+		<li><a href="/signup">Sign up!</a></li>
+
+		{% endif %}
+
+{% endblock %}
+
+{% block main %}
+
+<table>
+	{% for h in history %}
+	<tr>
+	<td>{{h.date}}</td>
+	<td>{{h.content}}</td>
+	<td><a href="{{h.view}}">View</a></td>
+	{% if logged_in %} <td><a href="{{h.edit}}">Edit</a></td> {% endif %}
+	<tr>
+	{% endfor %}
+</table>
+
+{% endblock %}
